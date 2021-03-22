@@ -1,0 +1,1051 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CommunityGAN: Community Detection with Generative Adversarial Nets, 三环三星">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CommunityGAN: Community Detection with Generative Adversarial Nets | 三环三星</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">三环三星</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">三环三星</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://dede-photo.oss-cn-beijing.aliyuncs.com/background/IMG_0223.JPG')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CommunityGAN: Community Detection with Generative Adversarial Nets</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Embedding/">
+                                <span class="chip bg-color">Embedding</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                论文阅读
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-08-18
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="CommunityGAN-Community-Detection-with-Generative-Adversarial-Nets"><a href="#CommunityGAN-Community-Detection-with-Generative-Adversarial-Nets" class="headerlink" title="CommunityGAN: Community Detection with Generative Adversarial Nets"></a>CommunityGAN: Community Detection with Generative Adversarial Nets</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>​        社区发现旨在找出网络中具有相似属性或者功能的节点群，如查找社交网络中属于相同组织的用户，生物医学网络中功能相似的蛋白质，引用网络中相同学科的论文集。</p>
+<p>​        近年来，随着深度学习和网络表示学习的发展，这些技术也被应用到社区发现问题中来。但是问题在于，现实的社区大部分都是重叠的，一个顶点可能会属于数十个社区，而通过网络表示学习获得顶点向量后，通常采用聚类的方法进行社区发现，而大多数的聚类算法是无法处理密集的社区重叠问题。</p>
+<p>​        本文提出了CommunityGAN，一种新颖的社区发现框架，可以用于解决重叠的社区发现和图嵌入学习问题。</p>
+<h3 id="CommunityGAN-Framework"><a href="#CommunityGAN-Framework" class="headerlink" title="CommunityGAN Framework"></a>CommunityGAN Framework</h3><p>$\cal G=(\cal V,\cal E,\cal M)$表示一张图，其中$\cal V={v_1,…,v_V}$是点集，$\cal E={e_{ij}}_{i,j=1}^V$是边集。</p>
+<p>$\cal M$是图 $\cal G$ 的motif集合，本文中只关注一种特殊的motif：clique。</p>
+<p>给定一个顶点$v_c$，定义$M(v_c)$为图中包含$v_c$顶点的motif集合，$M(v_c)$集合的规模远小于$\cal V$。</p>
+<p>定义条件概率$p_{true}(m|v_c)$为包含$v_c$顶点的motif集合在全体motif集合$\cal M$中的偏向分布。</p>
+<p>因此，$M(v_c)$可以视为根据$p_{true}(m|v_c)$采样到的的motif。给定一张图$\cal G$，我们的目标是学习得到两个模型：</p>
+<p>（1）Generator $G(s|v_c;\theta_G)$：通过近似$p_{true}(m|v_c)$，生成（或选择）包含$v_c$的集合，使该集合与现实的motif最相似。</p>
+<p>（2）Discriminator $D(s,\theta_D)$：目的是输出顶点集合是真实motif（即来自$\cal M$）的概率。</p>
+<p>​        生成器$G$和判别器$D$在minmax中相互博弈，生成器$G$会尽力近似$p_{true}(m|v_c)$，生成包含$v_c$的最接近真实motif的顶点集。判别器 $D$会尽力区分真实motif的$p_{true}(m|v_c)$和Generator $G$生成的motif之间的区别。正式地，$G$和$D$在minmax游戏中成为博弈的两个对手，公式如下：<br>$$<br>\mathop{min}\limits_{\theta <em>G}\mathop{max}\limits</em>{\theta <em>D}V(G,D)=\sum</em>{c=1}^{V}\left(\Bbb E_{m\sim p_{true}(\cdot|v_c)}\left[logD(m;\theta_D) \right]+ \Bbb E_{s\sim G(s|v_c;\theta_G) }\left[log\left(1-D(s;\theta_D)\right) \right]\right)\tag{1}<br>$$</p>
+<ul>
+<li>对于$\theta_D$，判别器希望自身能够分辨准确，对真实的样本$m\sim p_{true}(\cdot|v_c)$，让其概率值大，即最大$log(D(m;\theta_D))$；对于生成的样本$s\sim G(\cdot|v_c;\theta_G)$，让其概率值最小，即最大$log(1-D(s;\theta_D))$</li>
+<li>对于$\theta_G$，生成器希望自身生成的样本能够骗过判别器，使其无法分辨出生成的样本，因此要让生成样本的概率最大，即最小$log(1-D(s;\theta_D))$</li>
+</ul>
+<p>基于公式（1），可以通过交替地最大化（$D$）最小化（$G$）值函数$V(G,D)$来学习最优的$G$和$D$。CommunityGAN的框架如下图所示：</p>
+<img src="https://dede-photo.oss-cn-beijing.aliyuncs.com/img/image-20200802102116278.png" alt="image-20200802102116278" style="zoom:50%;" />
+
+<p>​        判别器 $D$ 通过$p_{true}(m|v_c)$中的正样本和$G(\cdot|v_c;\theta_G)$中的负样本来进行训练，并在$D$的指导下使用策略梯度技术更新生成器 $G$ 。$G$和$D$之间的竞争推动了二者的性能，直到$G$和真实的motif难以区分。</p>
+<p>​        生成器和判别器的博弈就好比是造假团伙与银行之间的博弈，造假团伙希望造出更像的真钞的假钞，而银行则要鉴别出真钞和假钞，在这个博弈的过程中，造假团伙提升了自己造假的能力，银行提升了鉴别的能力。</p>
+<h3 id="（1）-G-和-D-简单的实现"><a href="#（1）-G-和-D-简单的实现" class="headerlink" title="（1）$G$和$D$简单的实现"></a>（1）$G$和$D$简单的实现</h3><p>​        判别器的简单实现基于sigmoid函数，生成器的简单实现基于softmax函数。</p>
+<p>​        对于判别器$D$，可以定义为输入顶点集合中，每两个顶点的内积做非线性变换后的乘积：<br>$$<br>D(s)=\prod_{(u,v)\in s,u\neq v}\sigma(d_u^Td_v)\tag{4}<br>$$<br>式中：$d_u,d_v\in\Bbb R^k$是判别器中顶点$u$和$v$的k维表示向量，$\theta_D$是判别器对于顶点所生成的空间。</p>
+<p>​        对于生成器$G$，为了生成包含$v_c$的顶点集合，我们可以把$(v_{s_1},v_{s_2},…,v_{s_m})$这一顶点序列作为集合，其中$v_{s_1}=v_c$。因此，生成器$G$可以定义为：<br>$$<br>G(s|v_c)=G_v(v_{s_2}|v_{s_1})G_v(v_{s_3}|v_{s_1},v_{s_2})…G_v(v_{s_m}|v_{s_1},…,v_{s_{m-1}})\tag{5}<br>$$<br>​        值得注意的是，在公式（5）中，$v_{s_m}$的生成是基于$v_{s_1}$到$v_{s_{m-1}}$，而不是仅基于$v_{s_{m-1}}$。因为如果我们仅基于$v_{s_{m-1}}$生成$v_{s_m}$，很有可能就会导致$v_{s_m}$和其他顶点会属于不同的社区。生成器$G_v$定义如下：<br>$$<br>G_v(v_{s_m}|v_{s_1},…,v_{s_{m-1}})=\frac{exp(\sum_{i=1}^{m-1}\rm g_{\it v_{s_m}}^{\sf T}g_{\it v_{s_i}})}{\sum_{v\notin (v_{s_1},…,v_{s_{m-1}})}exp(\sum_{i=1}^{m-1}\rm g_\it v^{\sf T}g_{\it v_{s_i}})}\tag{6}<br>$$<br>式中：$\rm g_\it v\in\Bbb R^k$是生成器中顶点$v$的k维表示向量，$\theta_G$是生成器对于顶点所生成的空间。</p>
+<h3 id="（2）基于Graph-AGM的初步实现"><a href="#（2）基于Graph-AGM的初步实现" class="headerlink" title="（2）基于Graph AGM的初步实现"></a>（2）基于Graph AGM的初步实现</h3><p>​        Sigmoid和Softmax函数为判别器和生成器给定了简洁直观的定义，但在社区发现任务中存在三个限制：</p>
+<p>（1）在根据公式（4）和（6）学习到顶点的表示向量后，为了进行社区发现，我们仍然需要采用一些聚类算法，而大多数的聚类算法无法处理社区重叠的问题。</p>
+<p>（2）公式（6）中的softmax的计算涉及图中的所有顶点，计算量大，效率低下。 </p>
+<p>（3）没有充分利用图的拓扑结构信息。</p>
+<p>​        为了解决这些问题，在CommunityGAN中，我们提出了一种新颖的判别器，生成器实现方式：Graph AGM（Affiliation Graph Model，隶属关系图模型）。</p>
+<img src="https://dede-photo.oss-cn-beijing.aliyuncs.com/img/image-20200802144920051.png" alt="image-20200802144920051" style="zoom:50%;" />
+
+<p>​        在AGM中，每个顶点可以隶属于0个，1个，或者多个社区。如果顶点$u$隶属于社区$c$，则该隶属度不为负。</p>
+<p>​        对于任意社区$c\in C$，其成员顶点$u$和$v$连接的概率为：$1-exp(-F_{uc}\cdot F_{vc})$。此外，每个社区$c$生成边是独立的。如果顶点$u$和$v$通过多个社区连接多次，则连接概率为：$1-exp(-\sum_cF_{uc}\cdot F_{vc})$。因此，顶点$u$和$v$（通过任何可能的社区）连接的概率为$p(u,v)=1-exp(-F_u^{\sf T}\cdot F_v)$，其中$F_u$和$F_v$是顶点$u$和$v$的非负$C$维隶属度向量。</p>
+<p>​        接下来，我们拓展 edge generation到motif generation。</p>
+<p>​        对于$m$个顶点$v_1$到$v_m$，定义通过社区$c$成为clique的概率为：$p_c(v_1,v_2,…,v_m)=1-exp(-\prod_{i=1}^mF_{v_ic})$，同时可以通过下式计算这$m$个顶点通过任意社区成为clique的概率：<br>$$<br>\begin{align}<br>p(v_1,v_2,…,v_m)=&amp;1-\prod_c(1-p_c(v_1,v_2,…,v_m))\<br>=&amp;1-exp(-\odot(F_{v_1},F_{v_2},…,F_{v_m}))<br>\end{align}<br>\tag{7}<br>$$<br>式中，$\odot(F_{v_1},F_{v_2},…,F_{v_m})=\sum_{c=1}^C\prod_{i=1}^mF_{v_ic}$</p>
+<p>​        判别器可以如下定义：<br>$$<br>D(s)=1-exp(-\odot\big(d_{v_1},d_{v_2},…,d_{v_m})\big)<br>$$<br>​        式中，$d_v\in \Bbb R^C$表示判别器中顶点$v$的表示向量，$\theta_D$表示判别器对顶点所生成的向量空间</p>
+<p>接下来，生成器$G_v$可以进一步定义为：<br>$$<br>G_v(v_{s_m}|v_{s_1},…,v_{s_{m-1}})=\frac{1-exp(-\odot(\rm g_{\it v_{s_1}},…,g_{\it v_{s_m}}))}{\sum_{v\notin v_{s_1},…,v_{s_{m-1}}}1-\rm exp\big(-\odot(\rm g_{\it v_{s_1}},…,g_{\it v_{s_{m-1}}},g_\it v\rm)\big)}<br>$$<br>式中：$\rm g_\it v\in \Bbb R^C$是生成器$G_v$中顶点$v$的非负$C$维表示向量，$\theta_G$是生成器对于顶点所生成的空间。在此设置下，学习到的向量$\rm g_\cal v$可以表示顶点$v$和社区之间的隶属度，这意味着我们无需其他聚类算法就可以找到社区，因此就克服了第一个限制。</p>
+<h2 id="（3）基于Graph-AGM的改进实现"><a href="#（3）基于Graph-AGM的改进实现" class="headerlink" title="（3）基于Graph AGM的改进实现"></a>（3）基于Graph AGM的改进实现</h2><p>​        为了进一步客服其他两个限制，受到《GraphGAN: Graph Representation Learning With Generative Adversarial Nets》的启发，我们如下设置了AGM：</p>
+<p>​        为了计算$G_v(v_{s_m}|v_{s_1},…,v_{s_{m-1}})$，我们首先假设存在虚拟顶点$v_v$与$v_{s_1}$到$v_{s_{m-1}}$的<strong>全体邻域</strong>中的顶点相连，即$N(v_v)=N(v_{s_1})\bigcup…\bigcup N(v_{s_{m-1}})$，$N(v)$表示顶点$v$的邻域节点。此外，虚拟顶点$v_v$的表示向量$\rm g_{\it v_v}=g_{\it v_{s_1}}\circ\cdot\cdot\cdot\circ g_{\it v_{s_{m-1}}}$，即$v_v$的表示向量是$v_{s_1}$到$v_{s_{m-1}}$表示向量的逐项乘积。为了简单起见，我们用$G_v(s_m|v_v)$表示$G_v(v_{s_m}|v_{s_1},…v_{s_{m-1}})$。然后我们根据计算好的概率分布，从虚拟顶点$v_v$开始有偏向的随机游走。在随机游走过程中，如果当前的访问顶点是$v$，并且生成器$G$决定访问$v$的先前顶点，则选择$v$作为生成节点，并停止随机游走，下图说明了生成大小为3的顶点子集的过程：</p>
+<p><img src="https://dede-photo.oss-cn-beijing.aliyuncs.com/img/image-20200803092010255.png" alt="image-20200803092010255"></p>
+<p>​        此外，在随机游走过程中，我们希望游走路径总是与根顶点$v_v$相关，以此来最大化生成顶点集合成为motif的概率。因此，对于给定一个顶点$v_c$和它的一个邻域顶点$v_i\in N(v_c)$，我们定义给定$v_c$的$v_i$的相关概率为：<br>$$<br>\ p_{v_v}(v_i|v_c)=\frac{1-exp(-\odot(\rm g_\it {v_i},\rm g_\it {v_c},\rm g_\it {v_v}\rm))}{\sum_{v_j\in N(v_c)}1-exp(-\odot(\rm g_\it {v_j},\rm g_\it {v_c},\rm g_\it {v_v}\rm))}\tag{10}<br>$$<br>​        如果我们定义随机游走的路径为$P_r=(v_{r_1},v_{r_2},…,v_{r_n})$，则选择这条路径的概率为</p>
+<p>$p_{v_v}(v_{r_{n-1}}|v_{r_n})\cdot \prod_{i=1}^{n-1}p_{v_v}(v_{r_{i+1}}|v_{r_i})$</p>
+<p>在梯度策略中，我们通过选择路径，目标是从$D$中获得最大回报。因此，尽管从$v_{r_1}$到$v_{r_n}$有多条路径，如果我们已经选择了路径$P_r$，我们会优化该路径上的策略梯度，而忽略其他路径，换句话说，如果我们选择了路径$P_r$，我们定义$G_v(v_{s_m}|v_v)$，如下：<br>$$<br>G_v(v_{s_m}|v_v)=p_{v_v}(v_{r_{n-1}}|v_{r_n})\cdot \prod_{i=1}^{n-1}p_{v_v}(v_{r_{i+1}}|v_{r_i})<br>$$<br>​        最后，CommunityGAN的算法流程如下：</p>
+<img src="https://dede-photo.oss-cn-beijing.aliyuncs.com/img/image-20200803093558119.png" alt="image-20200803093558119" style="zoom:50%;" />
+
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>模型初始化：</strong>我们有两种方法来进行模型初始化（1）我们利用AGM模型去学习获得顶点$v_i$对应的隶属度向量$F_i$，然后直接设置$g_{v_i}=d_{v_i}=F_i$（2）使用局部最小邻域，我们可以将每个顶点$v_i$及其邻域$N(v_i)$看做一个社区（$C(v_i)$）？？？？？</p>
+<p><strong>确定社区成员：</strong>在学习参数$\theta_G$和$\theta_D$后，我们需要去决定每个顶点的社区成员身份，我们通过设置一个阈值。如果两个顶点属于同一个社区，则它们之间通过社区连接的概率应该大于background edge probability（$\epsilon=\frac{2E}{V(V-1)}$），于是我们设置这个阈值$\delta=\sqrt{-log(1-\epsilon)}$，如果$g_{v_{ic}}\geq \delta$或者$d_{v_{ic}}\geq \delta$，则认为顶点$v_i$属于社区$c$。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">dede</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://dymzcc.github.io/2020/08/18/CommunityGAN-Community-Detection-with-Generative-Adversarial-Nets/">https://dymzcc.github.io/2020/08/18/CommunityGAN-Community-Detection-with-Generative-Adversarial-Nets/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">dede</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Embedding/">
+                                    <span class="chip bg-color">Embedding</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/08/18/GraphGAN-Graph-Representation-Learning-with-Generative-Adversarial-Nets/">
+                    <div class="card-image">
+                        
+                        <img src="https://dede-photo.oss-cn-beijing.aliyuncs.com/background/IMG_0223.JPG" class="responsive-img" alt="GraphGAN: Graph Representation Learning with Generative Adversarial Nets">
+                        
+                        <span class="card-title">GraphGAN: Graph Representation Learning with Generative Adversarial Nets</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Embedding/">
+                        <span class="chip bg-color">Embedding</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/18/CommunityGAN-Community-Detection-with-Generative-Adversarial-Nets/">
+                    <div class="card-image">
+                        
+                        <img src="https://dede-photo.oss-cn-beijing.aliyuncs.com/background/IMG_0223.JPG" class="responsive-img" alt="CommunityGAN: Community Detection with Generative Adversarial Nets">
+                        
+                        <span class="card-title">CommunityGAN: Community Detection with Generative Adversarial Nets</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Embedding/">
+                        <span class="chip bg-color">Embedding</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">dede</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/dymzcc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:347722520@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=347722520" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 347722520" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
