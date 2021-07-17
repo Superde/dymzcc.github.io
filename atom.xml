@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>边城</title>
+  
+  <subtitle>Slow is Fast</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://dymzcc.github.io/"/>
+  <updated>2021-07-16T11:17:22.216Z</updated>
+  <id>https://dymzcc.github.io/</id>
+  
+  <author>
+    <name>dede</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>虚函数</title>
+    <link href="https://dymzcc.github.io/2021/05/21/xu-han-shu/"/>
+    <id>https://dymzcc.github.io/2021/05/21/xu-han-shu/</id>
+    <published>2021-05-21T11:42:49.000Z</published>
+    <updated>2021-07-16T11:17:22.216Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;总结写开头&quot;&gt;&lt;a href=&quot;#总结写开头&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="面向对象" scheme="https://dymzcc.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内联函数</title>
+    <link href="https://dymzcc.github.io/2021/05/20/nei-lian-han-shu/"/>
+    <id>https://dymzcc.github.io/2021/05/20/nei-lian-han-shu/</id>
+    <published>2021-05-20T13:22:35.000Z</published>
+    <updated>2021-07-16T11:16:54.242Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在C/C++中，如果一些函数被频繁调用，不断地有函数入栈，会造成栈空间的大量消耗&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;栈空间&lt;/strong&gt;：就是指放置程式的局部数据也就是函数内数据的内存空间，在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="面向对象" scheme="https://dymzcc.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>友元函数和友元类</title>
+    <link href="https://dymzcc.github.io/2021/05/19/you-yuan-han-shu-he-you-yuan-lei/"/>
+    <id>https://dymzcc.github.io/2021/05/19/you-yuan-han-shu-he-you-yuan-lei/</id>
+    <published>2021-05-19T12:31:29.000Z</published>
+    <updated>2021-07-16T11:15:36.015Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;友元机制并没有破坏类的封装性&lt;/strong&gt;&lt;br&gt;乍看友元机制允许非成员函数访问私有变量，但是其实友元函数和成员函数只是类接口的两种实现而已。&lt;strong&gt;类声明仍控制了哪些函数可以访问私有数据和保护数据&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="面向对象" scheme="https://dymzcc.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>类成员函数</title>
+    <link href="https://dymzcc.github.io/2021/05/19/lei-cheng-yuan-han-shu/"/>
+    <id>https://dymzcc.github.io/2021/05/19/lei-cheng-yuan-han-shu/</id>
+    <published>2021-05-19T09:22:44.000Z</published>
+    <updated>2021-07-16T11:16:11.725Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;参数（右值）的符号必须是右值引用符号，即“&amp;amp;&amp;amp;”&lt;br&gt;参数（右值）不可以是常量，因为我们需要修改右值&lt;br&gt;参数（右值）的资源链接和标记必须修改。否则，右值的析构函数就会释放资源。转移到新对象的资源也就无效了&lt;/p&gt;
+&lt;h2 id=&quot;一、成员函数&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="面向对象" scheme="https://dymzcc.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重载、隐藏、覆盖</title>
+    <link href="https://dymzcc.github.io/2021/05/17/chong-zai-yin-cang-fu-gai/"/>
+    <id>https://dymzcc.github.io/2021/05/17/chong-zai-yin-cang-fu-gai/</id>
+    <published>2021-05-17T12:42:49.000Z</published>
+    <updated>2021-07-16T11:14:53.684Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;（1）重载&lt;/strong&gt;&lt;br&gt;重载的特性有：（1）相同的范围内，&lt;strong&gt;在同一个类中&lt;/strong&gt;（2）函数名字相同（3）参数不同&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-cpp&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="面向对象" scheme="https://dymzcc.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GCC编译的阶段</title>
+    <link href="https://dymzcc.github.io/2021/05/16/gcc-bian-yi-de-jie-duan/"/>
+    <id>https://dymzcc.github.io/2021/05/16/gcc-bian-yi-de-jie-duan/</id>
+    <published>2021-05-16T05:19:34.000Z</published>
+    <updated>2021-07-16T11:09:03.019Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;（1）预编译&lt;/strong&gt;&lt;br&gt;主要处理源代码文件中的以#开头的预编译指令，处理规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;删除所有的#define，展开所有的宏定义&lt;/li&gt;
+&lt;li&gt;处理所有的条件预编译指令，如”#if”、”#endif”、”#ifdef
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>泛型函数和模板</title>
+    <link href="https://dymzcc.github.io/2021/05/15/fan-xing-han-shu-mo-ban/"/>
+    <id>https://dymzcc.github.io/2021/05/15/fan-xing-han-shu-mo-ban/</id>
+    <published>2021-05-15T11:27:25.000Z</published>
+    <updated>2021-07-16T11:19:44.928Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、函数模板&quot;&gt;&lt;a href=&quot;#一、函数模板&quot; class=&quot;headerlink&quot; title=&quot;一、函数模板&quot;&gt;&lt;/a&gt;一、函数模板&lt;/h2&gt;&lt;h4 id=&quot;为什么需要函数模板？&quot;&gt;&lt;a href=&quot;#为什么需要函数模板？&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Lambda表达式</title>
+    <link href="https://dymzcc.github.io/2021/05/15/lambda-biao-da-shi/"/>
+    <id>https://dymzcc.github.io/2021/05/15/lambda-biao-da-shi/</id>
+    <published>2021-05-15T05:45:35.000Z</published>
+    <updated>2021-07-16T11:04:32.736Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1-匿名函数&quot;&gt;&lt;a href=&quot;#1-匿名函数&quot; class=&quot;headerlink&quot; title=&quot;1. 匿名函数&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>引用、指针、智能指针</title>
+    <link href="https://dymzcc.github.io/2021/05/15/yin-yong-zhi-zhen-zhi-neng-zhi-zhen/"/>
+    <id>https://dymzcc.github.io/2021/05/15/yin-yong-zhi-zhen-zhi-neng-zhi-zhen/</id>
+    <published>2021-05-15T01:29:24.000Z</published>
+    <updated>2021-07-16T11:07:45.143Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、指针和引用的区别&quot;&gt;&lt;a href=&quot;#一、指针和引用的区别&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>右值和转移语义</title>
+    <link href="https://dymzcc.github.io/2021/05/15/you-zhi-he-zhuan-yi-yu-yi/"/>
+    <id>https://dymzcc.github.io/2021/05/15/you-zhi-he-zhuan-yi-yu-yi/</id>
+    <published>2021-05-15T01:19:25.000Z</published>
+    <updated>2021-07-16T11:05:54.199Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、左值和右值&quot;&gt;&lt;a href=&quot;#一、左值和右值&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>new/delete和malloc/free</title>
+    <link href="https://dymzcc.github.io/2021/05/14/new-delete-he-malloc-free/"/>
+    <id>https://dymzcc.github.io/2021/05/14/new-delete-he-malloc-free/</id>
+    <published>2021-05-14T01:19:25.000Z</published>
+    <updated>2021-07-16T11:03:39.777Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;code&gt;malloc/free&lt;/code&gt;&lt;br&gt;需要动态开辟内存时，可以使用&lt;code&gt;malloc/free&lt;/code&gt;函数，从堆中获得空间，即&lt;code&gt;malloc&lt;/code&gt;函数返回指向堆里面一块内存的指针。操作系统中有一个记录空闲内存地址的链表，如果收
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内存对齐</title>
+    <link href="https://dymzcc.github.io/2021/05/14/nei-cun-dui-qi/"/>
+    <id>https://dymzcc.github.io/2021/05/14/nei-cun-dui-qi/</id>
+    <published>2021-05-14T01:19:25.000Z</published>
+    <updated>2021-07-16T11:02:42.643Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、预备知识&quot;&gt;&lt;a href=&quot;#一、预备知识&quot; class=&quot;headerlink&quot; title=&quot;一、预备知识&quot;&gt;&lt;/a&gt;一、预备知识&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;位：bit；字节：B/Byte；8bit =
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>运算符重载</title>
+    <link href="https://dymzcc.github.io/2021/05/12/yun-suan-fu-chong-zai/"/>
+    <id>https://dymzcc.github.io/2021/05/12/yun-suan-fu-chong-zai/</id>
+    <published>2021-05-12T03:29:13.000Z</published>
+    <updated>2021-07-16T11:01:14.308Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;C++中预定义的运算法，通常只能用于基本数据类型间的计算，而不能用于对象之间的运算。为了能在对象间运用运算符，就需要重载运算符&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;比如说有一个复数类，该类有两个成员变量，对应实部和虚部&lt;br&gt;通过重载 &lt;code&gt;+&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>内存模型</title>
+    <link href="https://dymzcc.github.io/2021/05/11/nei-cun-mo-xing/"/>
+    <id>https://dymzcc.github.io/2021/05/11/nei-cun-mo-xing/</id>
+    <published>2021-05-11T05:13:35.000Z</published>
+    <updated>2021-07-16T11:10:47.805Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、内存模型&quot;&gt;&lt;a href=&quot;#一、内存模型&quot; class=&quot;headerlink&quot; title=&quot;一、内存模型&quot;&gt;&lt;/a&gt;一、内存模型&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++类型转换</title>
+    <link href="https://dymzcc.github.io/2021/05/10/lei-xing-zhuan-huan/"/>
+    <id>https://dymzcc.github.io/2021/05/10/lei-xing-zhuan-huan/</id>
+    <published>2021-05-10T09:12:19.000Z</published>
+    <updated>2021-07-16T11:01:23.592Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;C++中，类型转换分为两种：隐式类型转换和显式类型转换&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、隐式类型转换&quot;&gt;&lt;a href=&quot;#一、隐式类型转换&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++常见关键字</title>
+    <link href="https://dymzcc.github.io/2021/05/10/chang-yong-guan-jian-zi/"/>
+    <id>https://dymzcc.github.io/2021/05/10/chang-yong-guan-jian-zi/</id>
+    <published>2021-05-10T09:09:35.000Z</published>
+    <updated>2021-07-16T11:01:27.902Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、Const关键字&quot;&gt;&lt;a href=&quot;#一、Const关键字&quot; class=&quot;headerlink&quot; title=&quot;一、Const关键字&quot;&gt;&lt;/a&gt;一、Const关键字&lt;/h2&gt;&lt;h4 id=&quot;（1）基本数据类型和const&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="https://dymzcc.github.io/categories/C/"/>
+    
+    
+      <category term="语言基础" scheme="https://dymzcc.github.io/tags/%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Overlapping Community Detection Based on Random Walk and Seeds Extension</title>
+    <link href="https://dymzcc.github.io/2020/09/12/overlapping-community-detection-based-on-random-walk-and-seeds-extension/"/>
+    <id>https://dymzcc.github.io/2020/09/12/overlapping-community-detection-based-on-random-walk-and-seeds-extension/</id>
+    <published>2020-09-12T02:19:23.000Z</published>
+    <updated>2021-07-16T09:09:10.801Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Overlapping-Community-Detection-Based-on-Random-Walk-and-Seeds-Extension&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="https://dymzcc.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="Community Detection" scheme="https://dymzcc.github.io/tags/Community-Detection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Community Detection Using Restrained Random-walk Similarity</title>
+    <link href="https://dymzcc.github.io/2020/09/11/community-detection-using-restrained-random-walk-similarity/"/>
+    <id>https://dymzcc.github.io/2020/09/11/community-detection-using-restrained-random-walk-similarity/</id>
+    <published>2020-09-11T13:22:33.000Z</published>
+    <updated>2020-10-06T13:00:13.904Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Community-Detection-Using-Restrained-Random-walk-Similarity&quot;&gt;&lt;a href=&quot;#Community-Detection-Using-Restrained-Random-walk-Similarity&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="https://dymzcc.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="Community Detection" scheme="https://dymzcc.github.io/tags/Community-Detection/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Adaptive Graph Encoder for Attributed Graph Embedding</title>
+    <link href="https://dymzcc.github.io/2020/09/05/adaptive-graph-encoder-for-attributed-graph-embedding/"/>
+    <id>https://dymzcc.github.io/2020/09/05/adaptive-graph-encoder-for-attributed-graph-embedding/</id>
+    <published>2020-09-05T03:04:33.000Z</published>
+    <updated>2020-10-06T13:00:07.753Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Adaptive-Graph-Encoder-for-Attributed-Graph-Embedding&quot;&gt;&lt;a href=&quot;#Adaptive-Graph-Encoder-for-Attributed-Graph-Embedding&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="https://dymzcc.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="Embedding" scheme="https://dymzcc.github.io/tags/Embedding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Community Detection in Attributed Graphs: An Embedding Approach</title>
+    <link href="https://dymzcc.github.io/2020/08/29/community-detection-in-attributed-graphs-an-embedding-approach/"/>
+    <id>https://dymzcc.github.io/2020/08/29/community-detection-in-attributed-graphs-an-embedding-approach/</id>
+    <published>2020-08-29T12:49:50.000Z</published>
+    <updated>2020-10-06T13:00:01.388Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Community-Detection-in-Attributed-Graphs-An-Embedding-Approach&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="论文阅读" scheme="https://dymzcc.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/"/>
+    
+    
+      <category term="Embedding" scheme="https://dymzcc.github.io/tags/Embedding/"/>
+    
+  </entry>
+  
+</feed>
